@@ -1,35 +1,61 @@
-# 💾 QNAP NAS Storage Security & Ransomware Defense Strategies
+# 💾 Thiết Bị Lưu Trữ và Backup QNAP: Bảo Mật & Phòng Chống Ransomware
 
-**Đồ án/Đề tài môn học:** Tấn công mạng  
-**Học kỳ - Năm học:** Học kỳ 2 (2025 - 2026) | Năm 3  
-**Trường:** Đại học Sư phạm Kỹ thuật TP.HCM (HCMUTE)
+**Đồ án môn học:** An ninh mạng  
+**Học kỳ - Năm học:** Học kỳ 2 (2025 - 2026)  
+**Trường:** Đại học Công nghệ Kỹ thuật TP.HCM (HCMUTE)  
+**GVHD:** Th.S Nguyễn Thị Thanh Vân
 
 ---
 
 ## 📝 Tổng quan đề tài
-Kho lưu trữ này chứa tài liệu nghiên cứu chi tiết và kịch bản thực nghiệm về đề tài **"Thiết Bị Lưu Trữ và Backup QNAP: Phân tích bề mặt tấn công và giải pháp phòng chống"**.
 
-Thiết bị lưu trữ mạng (NAS) QNAP là hạ tầng cốt lõi lưu trữ và sao lưu dữ liệu cho nhiều doanh nghiệp. Tuy nhiên, đây cũng là mục tiêu tấn công hàng đầu của các chủng loại mã độc tống tiền (Ransomware). Nghiên cứu này tập trung khảo sát các vec-tơ tấn công phổ biến nhắm vào hệ điều hành QTS, phân tích các lỗ hổng bảo mật nghiêm trọng đã từng bị khai thác, từ đó xây dựng mô hình phòng thủ chủ động và cấu hình chiến lược sao lưu an toàn tuyệt đối cho dữ liệu doanh nghiệp.
+Đề tài nghiên cứu, cấu hình và thực nghiệm toàn diện hệ thống lưu trữ mạng **QNAP NAS (253B)** chạy hệ điều hành **QTS**, tập trung vào bảo mật dữ liệu, phòng chống Ransomware và giám sát hệ thống. Mô hình triển khai mô phỏng thực tế theo kiến trúc **DC – DR (Data Center – Disaster Recovery)** kết nối qua VPN IPSec.
 
-### Các nội dung nghiên cứu cốt lõi:
-- **Phân tích bề mặt tấn công QNAP:** Nghiên cứu cách thức kẻ tấn công dò quét (Reconnaissance), khai thác các dịch vụ công khai (UPnP, SSH, Web Admin) và các lỗ hổng bảo mật phổ biến (SQL Injection, Command Injection, Authentication Bypass) trên thiết bị lưu trữ.
-- **Khảo sát mã độc tống tiền (Ransomware Analysis):** Phân tích cơ chế hoạt động của các chiến dịch tấn công ransomware kinh điển nhắm vào QNAP (như *Qlocker*, *DeadBolt*) để mã hóa tập tin bẻ khóa và đòi tiền chuộc bằng tiền điện tử.
-- **Chiến lược Backup chống Ransomware (Hardening & DR):** Thiết lập các giải pháp bảo mật và quy trình khôi phục dữ liệu toàn diện:
-  - Cấu hình **QTS Smart Shield**, chặn truy cập IP bất thường và tắt các dịch vụ không cần thiết.
-  - Triển khai công nghệ **Snapshot (Bản sao thời điểm)** cô lập, đảm bảo dữ liệu có thể khôi phục ngay cả khi hệ thống tệp chính bị mã hóa.
-  - Áp dụng chiến lược sao lưu **3-2-1** thông qua ứng dụng Hybrid Backup Sync (HBS 3) để đồng bộ dữ liệu an toàn sang các nền tảng đám mây hoặc thiết bị NAS từ xa.
+## 🔬 Nội dung thực nghiệm (13 Lab)
 
-## 🛠️ Công nghệ & Mô hình nghiên cứu
-- **Hệ thống khảo sát:** QNAP NAS (Hệ điều hành QTS / QuTS hero).
-- **Giải pháp bảo mật:** QNAP Snapshot, HBS 3 (Hybrid Backup Sync), Malware Remover, Security Counselor.
-- **Nền tảng quản lý:** Git & GitHub.
+| Lab | Nội dung |
+|---|---|
+| 1 | Truy cập và làm quen giao diện quản lý QTS |
+| 2 | Tạo phân vùng lưu trữ RAID 1, Volume, Shared Folder |
+| 3 | Phân quyền người dùng và nhóm truy cập |
+| 4 | Backup dữ liệu liên-site (DC → DR) qua VPN IPSec bằng NetBak Replicator |
+| 5 | Bảo vệ dữ liệu trước Ransomware bằng Snapshot (phục hồi tức thì) |
+| 6 | Chống Brute Force SSH bằng Access Protection + kiểm thử với Hydra |
+| 7 | Giám sát QNAP qua SNMP với Zabbix (CPU, HDD, băng thông) |
+| 8 | Tối ưu hóa hiệu suất lưu trữ với Qboost |
+| 9 | Tăng cường bảo mật với Security Counselor và QuFirewall |
+| 10 | Đồng bộ dữ liệu máy tính lên NAS bằng Qsync Client |
+| 11 | Quét và phát hiện lỗ hổng bảo mật, Malware Remover |
+| 12 | Thiết lập hệ thống cảnh báo sự cố tự động (Incident Response Alerting) qua Gmail SMTP |
+| 13 | Cấu hình myQNAPcloud, DDNS và kiểm soát truy cập NAS từ Internet |
 
-## 📊 Tài liệu nghiên cứu chi tiết
-Toàn bộ nội dung phân tích lỗ hổng, hướng dẫn cấu hình thiết bị an toàn và kịch bản thiết lập hệ thống dự phòng giảm thiểu rủi ro được trình bày chi tiết trong file báo cáo PDF:  
-👉 **[Đọc báo cáo nghiên cứu bảo mật QNAP tại đây (docs/report.pdf)](docs/report.pdf)**
+## 🛠️ Công nghệ & Công cụ sử dụng
+
+**Phần cứng:**
+- Thiết bị: QNAP NAS 253B (hệ điều hành QTS)
+
+**Phần mềm & Giải pháp:**
+- Backup: NetBak Replicator, HBS 3 (Hybrid Backup Sync), Snapshot
+- Bảo mật: Security Counselor, QuFirewall, Access Protection, Malware Remover
+- Giám sát: Zabbix Server, SNMP, Notification Center
+- Đồng bộ: Qsync Client, myQNAPcloud, DDNS
+- Tối ưu: Qboost
+
+**Công cụ kiểm thử tấn công:**
+- Hydra (kiểm thử Brute Force SSH)
+
+## 📁 Cấu trúc thư mục
+
+```
+qnap-storage-security/
+└── docs/
+    └── report.pdf      # Báo cáo đầy đủ 13 Lab thực nghiệm
+```
+
+> Đề tài thuần nghiên cứu và thực nghiệm trên thiết bị thật, không có source code đi kèm.
+
+## 📊 Tài liệu dự án
+
+- 📜 **[Báo cáo môn học (PDF)](docs/report.pdf)**
 
 ---
-
-## 👥 Sinh viên thực hiện
-- **Họ và tên:** Nguyễn Văn An  
-- **Mã số sinh viên:** [Điền MSSV của bạn vào đây]
