@@ -1,4 +1,4 @@
-# 💾 Thiết Bị Lưu Trữ và Backup QNAP: Bảo Mật & Phòng Chống Ransomware
+# 💾 Thiết Bị Lưu Trữ và Backup QNAP: Bảo Mật & Phòng Chống
 
 **Đồ án môn học:** An ninh mạng  
 **Học kỳ - Năm học:** Học kỳ 2 (2025 - 2026)  
